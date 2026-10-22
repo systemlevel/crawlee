@@ -76,5 +76,19 @@
             "last 5 safari version"
         ]
     },
-    "packageManager": "yarn@4.10.3"
+    "packageManager": "yarn@4.10.3",
+    "resolutions": {
+        "sharp": "0.35.5",
+        "tinypool": "2.1.2",
+        "serialize-javascript": "7.0.5",
+        "dompurify": "3.4.16",
+        "mermaid": "11.16.1",
+        "postcss-selector-parser": "7.1.6",
+        "qs": "6.16.0",
+        "@swc/html": "1.16.18",
+        "colord": "2.10.0",
+        "katex": "0.18.7",
+        "sockjs/uuid": "11.1.1",
+        "sprintf-js": "1.1.3"
+    }
 }
