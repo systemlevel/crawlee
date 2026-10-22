@@ -1,4 +1,7 @@
-FROM node:24 AS builder
+FROM node:24.22.1 AS builder
+
+# Reject vendor images that still embed a vulnerable Node release.
+RUN node -e "const [major, minor, patch] = process.versions.node.split('.').map(Number); if (major !== 24 || minor < 22 || !Number.isInteger(patch) || (minor === 22 && patch < 1)) throw new Error('Node 24.22.1 or later in the 24.x branch is required');"
 
 COPY /packages ./packages
 COPY /package*.json ./
@@ -7,6 +10,9 @@ RUN npm --quiet set progress=false \
     && npm update
 
 FROM apify/actor-node-playwright-chrome:24-1.58.2-beta
+
+# Reject vendor images that still embed a vulnerable Node release.
+RUN node -e "const [major, minor, patch] = process.versions.node.split('.').map(Number); if (major !== 24 || minor < 22 || !Number.isInteger(patch) || (minor === 22 && patch < 1)) throw new Error('Node 24.22.1 or later in the 24.x branch is required');"
 
 RUN rm -r node_modules
 COPY --from=builder /node_modules ./node_modules

@@ -1,4 +1,7 @@
-FROM node:24 AS builder
+FROM node:24.22.1 AS builder
+
+# Reject vendor images that still embed a vulnerable Node release.
+RUN node -e "const [major, minor, patch] = process.versions.node.split('.').map(Number); if (major !== 24 || minor < 22 || !Number.isInteger(patch) || (minor === 22 && patch < 1)) throw new Error('Node 24.22.1 or later in the 24.x branch is required');"
 
 COPY /packages ./packages
 COPY /package*.json ./
@@ -12,6 +15,7 @@ RUN npm --quiet set progress=false \
 FROM lwthiker/curl-impersonate
 
 COPY --from=builder /usr/local/bin /usr/local/bin
+RUN node -e "const [major, minor, patch] = process.versions.node.split('.').map(Number); if (major !== 24 || minor < 22 || !Number.isInteger(patch) || (minor === 22 && patch < 1)) throw new Error('Node 24.22.1 or later in the 24.x branch is required');"
 COPY --from=builder /usr/local/lib/node_modules/npm /usr/local/lib/node_modules/npm
 COPY --from=builder /node_modules ./node_modules
 COPY --from=builder /packages ./packages
