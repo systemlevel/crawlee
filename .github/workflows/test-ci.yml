@@ -27,7 +27,7 @@ jobs:
                 # tests on windows are extremely unstable
                 # os: [ ubuntu-22.04, windows-2019 ]
                 os: [ ubuntu-22.04 ]
-                node-version: [ 20, 22, 24 ]
+                node-version: [ 22.23.4, 24.22.1, 26.12.1 ]
 
         steps:
             -   name: Checkout repository
@@ -111,7 +111,7 @@ jobs:
             -   name: Use Node.js 24
                 uses: actions/setup-node@v6
                 with:
-                    node-version: 24
+                    node-version: 24.22.1
                     package-manager-cache: false
 
             -   name: Enable corepack
@@ -253,7 +253,7 @@ jobs:
             -   name: Use Node.js 24
                 uses: actions/setup-node@v6
                 with:
-                    node-version: 24
+                    node-version: 24.22.1
                     package-manager-cache: false
 
             -   name: Enable corepack
@@ -300,7 +300,7 @@ jobs:
             -   name: Use Node.js 24
                 uses: actions/setup-node@v6
                 with:
-                    node-version: 24
+                    node-version: 24.22.1
                     package-manager-cache: false
 
             -   name: Enable corepack

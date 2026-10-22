@@ -82,7 +82,7 @@
         "@types/semver": "^7.3.12",
         "@types/stream-json": "^1.7.2",
         "@types/yargs": "^17.0.26",
-        "@vitest/coverage-v8": "^4.0.16",
+        "@vitest/coverage-v8": "4.1.12",
         "apify": "*",
         "apify-node-curl-impersonate": "^1.0.15",
         "basic-auth-parser": "^0.0.2",
@@ -113,7 +113,7 @@
         "turbo": "^2.1.0",
         "typescript": "^6.0.0",
         "typescript-eslint": "8.46.4",
-        "vitest": "^4.0.16"
+        "vitest": "4.1.12"
     },
     "lint-staged": {
         "**/*.{js,ts,mjs,mts,cjs,cts,json,css}": "biome format --write --no-errors-on-unmatched"
@@ -124,11 +124,28 @@
         "playwright-core": "1.61.0",
         "form-data": "^4.0.6",
         "tar": "^7.5.16",
-        "lerna/js-yaml": "^4.2.0"
+        "lerna/js-yaml": "^4.2.0",
+        "axios": "1.20.0",
+        "follow-redirects": "1.16.1",
+        "smol-toml": "1.9.1",
+        "pacote": "21.5.1",
+        "vitest": "4.1.12",
+        "@vitest/coverage-v8": "4.1.12",
+        "@vitest/mocker": "4.1.12",
+        "camoufox-js/adm-zip": "0.6.1",
+        "qs": "6.16.0",
+        "get-uri/basic-ftp": "6.2.3",
+        "brace-expansion@npm:5.0.8": "5.0.12",
+        "hono": "4.13.13",
+        "protobufjs": "7.6.6",
+        "@ai-sdk/provider-utils@npm:3.0.26": "3.0.28",
+        "body-parser@npm:1.20.5": "1.20.8",
+        "@ai-sdk/provider-utils@npm:^3.0.17": "3.0.28",
+        "generative-bayesian-network/adm-zip": "0.6.1"
     },
     "packageManager": "yarn@4.10.3",
     "volta": {
-        "node": "24.17.0",
+        "node": "24.22.1",
         "yarn": "4.10.3"
     }
 }

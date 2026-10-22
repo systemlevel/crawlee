@@ -3,6 +3,9 @@
 # You can also use any other image from Docker Hub.
 FROM apify/actor-node-puppeteer-chrome:24
 
+# Reject vendor images that still embed a vulnerable Node release.
+RUN node -e "const [major, minor, patch] = process.versions.node.split('.').map(Number); if (major !== 24 || minor < 22 || !Number.isInteger(patch) || (minor === 22 && patch < 1)) throw new Error('Node 24.22.1 or later in the 24.x branch is required');"
+
 # Copy just package.json and package-lock.json
 # to speed up the build using Docker layer cache.
 COPY --chown=myuser package*.json ./

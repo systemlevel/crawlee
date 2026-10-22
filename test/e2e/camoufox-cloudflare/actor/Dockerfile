@@ -2,6 +2,9 @@
 # Playwright (1.60) in package.json. Camoufox-js 0.11 cannot run under Playwright 1.61.
 FROM apify/actor-node-playwright-camoufox:24-1.60.0-beta
 
+# Reject vendor images that still embed a vulnerable Node release.
+RUN node -e "const [major, minor, patch] = process.versions.node.split('.').map(Number); if (major !== 24 || minor < 22 || !Number.isInteger(patch) || (minor === 22 && patch < 1)) throw new Error('Node 24.22.1 or later in the 24.x branch is required');"
+
 # The Camoufox base image builds as the non-root `myuser`, so everything we copy in must
 # be chowned to it — otherwise `npm install`/`npm update` cannot write into the workspace
 # packages (EACCES on packages/*/node_modules).
